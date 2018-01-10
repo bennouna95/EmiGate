@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+
+
+<html xmlns:th="http//www.thymeleaf.org"
+xmlns:layout="http//www.thymeleaf.net.nz/thymeleaf/layout">
+
+<meta http-equiv="Content-Type" content="text/html;" />
+
+
+
+<meta charset="iso-8859-1"/>
+
+	<meta name="viewport" content="width=1,initial-scale=1,user-scalable=1" />
+
+<link rel="stylesheet" href="..static/css/w3.css" th:href="@{/css/w3.css}"  />
+<link rel="stylesheet" href="../static/css/bootstrap.css"  th:href="@{/css/bootstrap.css}"/>
+<link rel="stylesheet" href="../static/font/css/font-awesome.min.css" th:href="@{/font/css/font-awesome.min.css}" />
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"
+      ></script>
+    
+ 
+ 
+<link rel="stylesheet"
+	href="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css"
+	/>
+	
+<script type="text/javascript"
+	src="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.min.js"
+	>
+	</script>           
+
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+</style>
+<style type="text/css">
+	  .g {
+    color: white;
+    background-color: #3B5998  }
+
+.w3-theme {color:#fff !important; background-color:#3B5998 !important}	 
+
+
+.c {
+    color: white;
+    background-color: #3B5998  }
+	 
+	 .w {color:#3B5998}
+	.d {
+    color: black;
+    background-color: #E9E8E9 }
+	
+</style>
+
+
+ 
+ 
+<body class="w3-theme-l5">
+
+<!-- Navbar -->
+<div class="w3-top w3-theme"  >
+
+ <div class="w3-row c  w3-left-align w3-large col-lg-12 ">
+		 <a  class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-theme-d2" ><em class="fa fa-bars"></em></a>
+		 
+		 
+		 
+		 <a href="acceuil.html" class="pull-left" style="color:white"><div  class="w3-bar-item w3-padding-large  w3-button" ><em class="fa fa-glide w3-margin-right"></em>EMI-GATE
+			 </div></a>
+			 
+
+			
+			 <div class="col-lg-4 col-sm-2 col-md-4" style="margin-top:7px">
+                     <form class="input-group " method="POST" action="search" >
+						<input type="text" name="rech" class="form-control" placeholder="Rechercher..."/>
+						<select name="choix" style="color:grey;margin-top:11px;" >
+						  <option value="Profils" style="color:grey;">Profeseur</option>
+						  <option value="Publications" style="color:grey;">Offre</option>
+						</select>
+						<!-- <input type="radio" name="choix" value="Profils" id="Profils"
+						checked="checked" /> <label for="Profils">Profils</label>
+						<input type="radio" name="choix" value="Publications" id="Publications" /> <label
+						for="Publications">Publications</label>
+						 -->
+						 <input type="submit" class="glyphicon glyphicon-search" style="height:30px" value="chercher"/>
+						 
+					</form>
+			 </div>
+
+				
+			 
+			 <a href="../index.html" class="w3-bar-item w3-button w3-right pull-right " style="font-size: 16px;margin-top:5px;margin-right:45px;border-color:#17233D;border-left-style:solid">Se déconnecter</a>
+		 
+			
+			 <div class="w3-dropdown-hover  w3-hide-small pull-right ">
+				 <button class="w3-button w3-hover-white w3-padding-large" title="Notifications"><i class="fa fa-bell"></i><span class="w3-badge w3-right w3-small w3-green">3</span></button>
+			<div class="w3-dropdown-content dropdown-menu dropdown-menu-left w3-card-4 w3-bar-block " style="width:280px">
+			  <a href="#" class="w3-bar-item w3-button w3-border-bottom">Miloudi a commenté une publication </a>
+			  <a href="#" class="w3-bar-item w3-button w3-border-bottom">Amine a publié une photo</a>
+			  <a href="#" class="w3-bar-item w3-button w3-border-bottom ">Achoukhan a publié une annonce</a>
+			  <a href="#" class="w3-bar-item w3-button w3-border-bottom ">Ayoub a commenté votre publication</a>
+			  <a href="#" class="w3-bar-item  w3-center w3-border-top" style="color:blue">Voir tout</a>
+			</div>
+			 </div>
+			 <a href="../mail/mail.html" class=" w3-button w3-hide-small w3-padding-large w3-hover-white pull-right" title="Messages"><em class="fa fa-envelope"></em></a> 
+		 
+		   <a href="../cv/cv.html" class=" w3-button w3-hide-small w3-padding-large w3-hover-white pull-right" title="Mon profil"><em class="fa fa-user"></em></a> 
+		   
+
+ </div>
+</div>
+
+<!-- Navbar on small screens -->
+<div id="navDemo" class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium w3-large">
+  <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 1</a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 2</a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 3</a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large">My Profile</a>
+</div>
+<div layout:fragment="content"></div>
+ 
+
+</body>
+</html>

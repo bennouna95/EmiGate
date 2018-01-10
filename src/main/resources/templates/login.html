@@ -1,0 +1,268 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=1,initial-scale=1,user-scalable=1" />
+	<title>EMIGATE</title>
+
+	<link href="http://fonts.googleapis.com/css?family=Lato:100italic,100,300italic,300,400italic,400,700italic,700,900italic,900" rel="stylesheet" type="text/css">
+	
+	<link rel="stylesheet" href="https://github.com/e-ruiz/w3css/blob/master/w3.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+	
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+	<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<script>
+
+function emailcheck(str) {
+
+var at="@"
+var dot="."
+var lat=str.indexOf(at)
+var lstr=str.length
+var ldot=str.indexOf(dot)
+if (str.indexOf(at)==-1){
+alert("Invalid E-mail ID")
+return false
+}
+
+if (str.indexOf(at)==-1 || str.indexOf(at)==0 || str.indexOf(at)==lstr){
+alert("Invalid E-mail ID")
+return false
+}
+
+if (str.indexOf(dot)==-1 || str.indexOf(dot)==0 || str.indexOf(dot)==lstr){
+alert("Invalid E-mail ID")
+return false
+}
+
+if (str.indexOf(at,(lat+1))!=-1){
+alert("Invalid E-mail ID")
+return false
+}
+
+if (str.substring(lat-1,lat)==dot || str.substring(lat+1,lat+2)==dot){
+alert("Invalid E-mail ID")
+return false
+}
+
+if (str.indexOf(dot,(lat+2))==-1){
+alert("Invalid E-mail ID")
+return false
+}
+
+if (str.indexOf(" ")!=-1){
+alert("Invalid E-mail ID")
+return false
+}
+
+return true 
+}
+
+function ValidateEmail(){
+var emailID=document.frm.username
+
+if ((emailID.value==null)||(emailID.value=="")){
+alert("veuillez inserer votre email ")
+emailID.focus()
+return false
+}
+if (emailcheck(emailID.value)==false){
+emailID.value=""
+emailID.focus()
+return false
+}
+return true
+}
+</script>
+	
+	
+	
+	
+	
+<style type="text/css">
+
+*{
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	        box-sizing: border-box;
+	outline: none;
+}
+body {
+	background: url(https://portal.microsoftwifi.com/static/portal_morocco_esm/images/background.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+	
+.login-form {
+	text-align: center;
+	margin: 0 auto;
+	margin-top: 200px;
+	margin-bottom: 200px;
+	max-width: 460px;
+}
+	.login-form > section {
+		background: rgba(255,255,255,.9);
+		padding: 35px 35px 25px 35px;
+		border-radius: 5px;
+	}
+	.login-form a {
+		color: #054185;
+	}
+	.login-form img {
+		display: block;
+		margin: 0 auto;
+		margin-bottom: 35px;
+	}
+
+form[role=login] {
+	font: 13px/2.2em Lato, serif;
+	color: #999;
+}	
+	form[role=login] input,
+	form[role=login] > button {
+		font-size: 16px;
+	}
+	form[role=login] input {
+		color: #777;
+		background: #fbfbfb;
+		border: 1px solid #c1c1c1;
+		border-radius: 3px;
+		-webkit-box-shadow: inset 0 0 1px 1px rgba(150, 150, 150, .1);
+		   -moz-box-shadow: inset 0 0 1px 1px rgba(150, 150, 150, .1);
+		        box-shadow: inset 0 0 1px 1px rgba(150, 150, 150, .1);
+	}
+	form[role=login] > div {
+		margin: 25px 0;
+	}
+	form[role=login] > div button {
+		font-weight: bold;
+		font-size: 16px;
+		line-height: 1.25em !important;
+		border: 1px solid #c1c1c1;
+		background: #efefef; /* Old browsers */
+		background: -moz-linear-gradient(top,  #efefef 0%, #d1d1d1 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#efefef), color-stop(100%,#d1d1d1)); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top,  #efefef 0%,#d1d1d1 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top,  #efefef 0%,#d1d1d1 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top,  #efefef 0%,#d1d1d1 100%); /* IE10+ */
+		background: linear-gradient(to bottom,  #efefef 0%,#d1d1d1 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efefef', endColorstr='#d1d1d1',GradientType=0 ); /* IE6-9 */
+	}
+	form[role=login] > button {
+		padding: 5px 40px;	
+		margin-top: 15px;
+		margin-bottom: 15px;
+		background: #054185;
+	}
+
+
+  .c {
+    color: white;
+    background-color: #3B5998  }
+	 
+	 .w {color:#3B5998}
+	.d {
+    color: black;
+    background-color: #E9E8E9 }
+	 
+  </style>
+	
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="overlay">
+<!-- Navbar -->
+<div class="w3-top">
+ <div class="w3-bar c  w3-left-align w3-large"><a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-theme-d2" href="javascript:void(0);" onClick="openNav()"><em class="fa fa-bars"></em></a> <div  class="w3-bar-item w3-padding-large "><em class="fa fa-glide w3-margin-right"></em>EMI-GATE<br>
+ </div> <a href="acceuil.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Acceuil"></a> <a href="cv/cvvvv.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Mon profil"></a> <a href="mail/maillll.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Messages"></a>
+ <div class="w3-dropdown-hover w3-hide-small"></div>
+ <a href="../inscription"
+				class="w3-bar-item w3-button w3-right pull-right "
+				style="font-size: 16px; margin-top: 5px; margin-right: 45px; border-color: white; border-left-style:inset">
+				S'inscrire</a>
+ </div>
+ 
+</div>
+
+<!-- Navbar on small screens -->
+<div id="navDemo" class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium w3-large">
+  <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 1</a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 2</a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 3</a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large">My Profile</a>
+</div>
+
+	
+	<section class="container login-form">
+		<section>
+		<div th:if="${param.error}">
+		  <h3 style="color:red">Email ou mot de passe incorrecte</h3>
+		  <h3 th:text="${param.error}" ></h3>
+     </div>
+		  <form onsubmit="return ValidateEmail()" id="loginForm" method="post" th:action="@{/login}" >
+			<img src="http://i.imgur.com/ifhu8Ci.png" alt="" />
+				<div class="form-group">
+				  <input id="email" type="text" name="username" required class="form-control" placeholder="Email"  />
+				</div>
+			
+				<div class="form-group">
+					<input type="password" name="password" required class="form-control" placeholder="Mot de passe" />
+					<br/>
+					<span class="input-group-btn">					</span>
+			      <div>se souvenir de moi: <input type="checkbox" name="remember-me" /> </div>
+					
+				</div>
+				
+			<button type="submit" name="go" class="btn btn-primary btn-block">Se connecter</button>
+			&nbsp;
+		  </form>
+		   
+     <div th:if="${param.logout}">
+       <h1 style="color:blue">Déconnecter.</h1>
+     </div>
+     	  	</section>
+	</section>
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
+	<script>
+	<!--
+	$( document ).ready(function() {
+	    $('#tooltip').tooltip();
+	});
+	-->
+	</script>
+	<script>
+	
+	function bonmail(mailteste)
+
+	{
+		var reg = new RegExp('^[a-z0-9]+([_|\.|-]{1}[a-z0-9]+)*@[a-z0-9]+([_|\.|-]{1}[a-z0-9]+)*[\.]{1}[a-z]{2,6}$', 'i');
+
+		if(reg.test(mailteste))
+		{
+			return(true);
+		}
+		else
+		{
+			return(false);
+		}
+	}
+	</script>
+</div>
+</body>
+</html>

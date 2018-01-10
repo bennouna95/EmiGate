@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http//www.thymeleaf.org">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="/css/style.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/css/demo.css" media="all" />
+<title>Insert title here</title>
+
+</head>
+<body>
+	<div class="form">
+
+		<form th:action="@{/inscription}" id="form" method="post">
+			<p class="contact">
+				<label for="name">Prénom</label>
+			</p>
+			<input id="prenom" name="prenom" placeholder="Prénom" required=""
+				tabindex="1" type="text">
+
+			<p class="contact">
+				<label for="name">Nom</label>
+			</p>
+			<input id="nom" name="nom" placeholder="Nom" required="" tabindex="1" type="text"> 
+			
+			<p class="contact"><label for="email">Email</label></p> 
+    		<input id="email" name="email" placeholder="example@domain.com" required="" type="email"> 
+			
+			<p class="contact"><label for="motdepasse">Mot de passe</label></p> 
+    		<input type="password" id="motdepasse" name="motdepasse" required=""> 
+    			
+            <p class="contact"><label for="remotdepasse">Confirmer votre mot de passe</label></p> 
+    		<input type="password" id="remotdepasse" name="remotdepasse" required=""> 
+    				
+    				<p class="contact">
+				<label for="name">Adresse</label>
+			</p>
+			<input id="adresse" name="adresse" placeholder="Adresse" required=""
+				 type="text">
+				
+				<p class="contact">
+				<label for="name">Matière</label>
+			</p>
+			<input id="genie" name="genie" placeholder="Génie" required=""
+				 type="text">
+    		<fieldset>
+                 <label>Date de naissance</label><br>
+                  <label  class="month"> 
+                  <select id="mois" name="mois" class="select-style">
+                  <option value="">Mois</option>
+                  <option value="01">Janvier</option>
+                  <option value="02">Fevrier</option>
+                  <option value="03" >Mars</option>
+                  <option value="04">Avril</option>
+                  <option value="05">Mai</option>
+                  <option value="06">Juin</option>
+                  <option value="07">Juillet</option>
+                  <option value="08">Août</option>
+                  <option value="09">Septembre</option>
+                  <option value="10">Octobre</option>
+                  <option value="11">Novembre</option>
+                  <option value="12" >Decembre</option>
+                  </label>
+                 </select>    
+                <label>    <input class="jour" maxlength="2" name="jour"  placeholder="Jour" required=""></label>
+                <label>     <input class="annee" maxlength="4" name="annee" placeholder="Année" required=""></label>
+              </fieldset>
+  
+            <select id="Sexe" name="Sexe" class="select-style gender">
+            <option  value="masculin">Masculin</option>
+            <option  value="feminin">Feminin</option>
+            </select><br><br>
+            
+            <p class="contact"><label for="phone">Numéro de téléphone</label></p> 
+            <input id="phone" name="phone" placeholder="Tel" required="" type="text"> <br>		
+    				
+			<input type="submit" class="buttom" name="submit" id="submit" value="S'inscrire">
+		</form>
+	</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+$('#motdepasse, #remotdepasse').on('keyup', function () {
+	  if ($('#motdepasse').val() == $('#remotdepasse').val()) {
+	    $('#message').html('Matching').css('color', 'green');
+	  } else 
+	    $('#message').html('Not Matching').css('color', 'red');
+	});
+</script>
+<script>
+
+jQuery('.form').validate({
+    rules: {
+        motdepasse: {
+            required: true,
+            minlength: 5
+        },
+        remotdepasse: {
+            required: true,
+            minlength: 5,
+            equalTo: "#motdepasse"
+        }
+    }
+}); 
+</script>
+
+</body>
+</html>

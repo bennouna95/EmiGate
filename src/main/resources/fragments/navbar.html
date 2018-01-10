@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+  </head>
+  <body>
+<!-- Navbar -->
+	<div class="w3-top w3-theme" th:fragment="navbar">
+		<div class="w3-row c  w3-left-align w3-large col-lg-12 ">
+			<a
+				class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-theme-d2"><em
+				class="fa fa-bars"></em></a> <a href="acceuil.html" class="pull-left"
+				style="color: white"><div
+					class="w3-bar-item w3-padding-large  w3-button">
+					<em class="fa fa-glide w3-margin-right"></em>EMI-GATE
+				</div></a>
+				<select class="w3-left" name="choix" style="color:grey;margin-top:11px;"  form=form1>
+						  <option value="Profils" style="color:grey;">Profils</option>
+						  <option value="Publications" style="color:grey;">Publications</option>
+						</select>
+
+		  <span class="col-lg-4 col-sm-2 col-md-4" style="margin-top: 7px">
+		  <form id="form1" class="input-group "  method="POST" action="search">
+					<input type="text" name="rech" class="form-control" placeholder="Rechercher..."/>
+					<span class="input-group-btn" >
+						 
+						<button class="btn btn-secondary" type="submit">
+								<span class="glyphicon glyphicon-search"></span>
+					</button>
+					</span>
+			
+			  </form>
+			  			
+		  </span>
+		
+		
+ 
+			  			<a href="rechAV"><button style="margin-top: 7px"  class="btn" value="">
+								Rechercher avancée
+		  </button></a>
+			  
+					
+				
+
+
+			<a href="../index.html"
+				class="w3-bar-item w3-button w3-right pull-right "
+				style="font-size: 16px; margin-top: 5px; margin-right: 45px; border-color: #17233D; border-left-style: solid">Se
+				déconnecter</a>
+
+
+			<div class="w3-dropdown-hover  w3-hide-small pull-right ">
+				<button class="w3-button w3-hover-white w3-padding-large"
+					title="Notifications">
+					<i class="fa fa-bell"></i><span
+						class="w3-badge w3-right w3-small w3-green">3</span>
+				</button>
+				<div
+					class="w3-dropdown-content dropdown-menu dropdown-menu-left w3-card-4 w3-bar-block "
+					style="width: 280px">
+					<a href="#" class="w3-bar-item w3-button w3-border-bottom">Miloudi
+						a commenté une publication </a> <a href="#"
+						class="w3-bar-item w3-button w3-border-bottom">Amine a publié
+						une photo</a> <a href="#"
+						class="w3-bar-item w3-button w3-border-bottom ">Achoukhan a
+						publié une annonce</a> <a href="#"
+						class="w3-bar-item w3-button w3-border-bottom ">Ayoub a
+						commenté votre publication</a> <a href="#"
+						class="w3-bar-item  w3-center w3-border-top" style="color: blue">Voir
+						tout</a>
+				</div>
+			</div>
+			<a href="../mail/mail.html"
+				class=" w3-button w3-hide-small w3-padding-large w3-hover-white pull-right"
+				title="Messages"><em class="fa fa-envelope"></em></a> <a
+				href="../cv/cv.html"
+				class=" w3-button w3-hide-small w3-padding-large w3-hover-white pull-right"
+				title="Mon profil"><em class="fa fa-user"></em></a>
+
+
+		</div>
+	</div>
+  </body>
+</html>

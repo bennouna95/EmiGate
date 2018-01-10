@@ -1,0 +1,316 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http//www.thymeleaf.org">
+
+<title>Recherche avancée</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"
+      ></script>
+
+<style>
+html, body, h1, h2, h3, h4, h5 {
+	font-family: "Open Sans", sans-serif
+}
+</style>
+<style type="text/css">
+.c {
+	color: white;
+	background-color: #3B5998
+}
+
+.w {
+	color: #3B5998
+}
+
+.d {
+	color: black;
+	background-color: #E9E8E9
+}
+</style>
+
+<body class="w3-theme-l5">
+
+
+   <!-- Navbar -->
+	
+<!-- Navbar -->
+	<div class="w3-top w3-theme">
+
+		<div class="w3-row c  w3-left-align w3-large col-lg-12 ">
+			<a
+				class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-theme-d2"><em
+				class="fa fa-bars"></em></a> <a href="/" class="pull-left"
+				style="color: white"><div
+					class="w3-bar-item w3-padding-large  w3-button">
+					<em class="fa fa-glide w3-margin-right"></em>EMI-GATE
+				</div></a>
+				<select class="w3-left" name="choix" style="color:grey;margin-top:11px;"  form=form1>
+						  <option value="Profils" style="color:grey;">Profeseur</option>
+						  <option value="Publications" style="color:grey;">Offre</option>
+						</select>
+
+		  <span class="col-lg-4 col-sm-2 col-md-4" style="margin-top: 7px">
+		  <form id="form1" class="input-group "  method="POST" action="search">
+					<input type="text" name="rech" class="form-control" placeholder="Rechercher..."/>
+					<span class="input-group-btn" >
+						 
+						<button class="btn btn-secondary" type="submit">
+								<span class="glyphicon glyphicon-search"></span>
+					</button>
+					</span>
+			
+			  </form>
+			  			
+		  </span>
+		
+		
+ 
+			  			<a href="/rechAv"><button style="margin-top: 7px"  class="btn" value="">
+								Rechercher avancée
+		  </button></a>
+		  
+		 
+					
+				
+
+
+			<a href="../index.html"
+				class="w3-bar-item w3-button w3-right pull-right "
+				style="font-size: 16px; margin-top: 5px; margin-right: 45px; border-color: #17233D; border-left-style: solid">Se
+				déconnecter</a>
+
+
+ <div class="w3-dropdown-hover  w3-hide-small pull-right ">
+				<button class="w3-button w3-hover-white w3-padding-large g"
+					title="Notifications">
+					<i class="fa fa-bell"></i><span
+						class="w3-badge w3-right w3-small w3-green">3</span>
+				</button>
+				<div class="w3-dropdown-content dropdown-menu dropdown-menu-left w3-card-4 w3-bar-block "
+					style="width: 280px"  id="getNot" >
+ 					<div id="getResultDiv">
+ 						<span class="list-group" >
+ 						</span>
+ 						
+                    </div>
+
+				</div>
+			</div>
+<a
+				href="/cv"
+				class=" w3-button w3-hide-small w3-padding-large w3-hover-white pull-right"
+				title="Mon profil"><em class="fa fa-user"></em></a>
+
+
+		</div>
+	</div>
+		<!-- Navbar on small screens -->
+	<div id="navDemo"
+		class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium w3-large">
+		<a href="#" class="w3-bar-item w3-button w3-padding-large">Link 1</a>
+		<a href="#" class="w3-bar-item w3-button w3-padding-large">Link 2</a>
+		<a href="#" class="w3-bar-item w3-button w3-padding-large">Link 3</a>
+		<a href="#" class="w3-bar-item w3-button w3-padding-large">My
+			Profile</a>
+	</div>
+	
+
+	<!-- Navbar on small screens -->
+	<div id="navDemo"
+		class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium w3-large">
+		<a href="#" class="w3-bar-item w3-button w3-padding-large">Link 1</a>
+		<a href="#" class="w3-bar-item w3-button w3-padding-large">Link 2</a>
+		<a href="#" class="w3-bar-item w3-button w3-padding-large">Link 3</a>
+		<a href="#" class="w3-bar-item w3-button w3-padding-large">My
+			Profile</a>
+	</div>
+
+	<!-- Page Container -->
+	<div class="w3-container w3-content"
+		style="max-width: 1400px; margin-top: 80px">
+		<!-- The Grid -->
+		<div class="w3-row">
+			<!-- Left Column -->
+			<div class="w3-col m3">
+	      <!-- Profile -->
+ <div class="w3-card-2 w3-round w3-white">
+        <div class="w3-container">
+          <h4 class="w3-center" th:text="${utilisateur.nom}+' '+${utilisateur.prenom}"></h4>
+          <p class="w3-center"><img th:src="'files/'+${utilisateur.img}" style="height:106px;width:106px" alt="Avatar"/></p>
+         <hr/>
+         <p><em class="fa fa-pencil fa-fw w3-margin-right w"  ></em><span th:text="${utilisateur.genie}" ></span></p>
+         <p><em class="fa fa-home fa-fw w3-margin-right w" ></em><span th:text="${utilisateur.adresse}" ></span></p>
+         <p><em class="fa fa-birthday-cake fa-fw w3-margin-right w"></em> <span th:text="${utilisateur.dateNaissance}" ></span> </p>
+        </div>
+      </div>
+      <!-- fin Profile -->
+				<br />
+
+				<!-- Accordion -->
+				<div class="w3-card-2 w3-round">
+					<div class="w3-white">
+						<div id="Demo1" class="w3-hide w3-container">
+							<p>Some text..</p>
+						</div>
+						<div id="Demo2" class="w3-hide w3-container">
+							<p>Some other text..</p>
+						</div>
+						<button onclick="myFunction('Demo3')"
+							class="w3-button w3-block w3-left-align c">
+							<em class="fa fa-users fa-fw w3-margin-right"></em>Mes étudiants & Mes Profeseurs<em class="fa fa-caret-down w3-margin-left"
+								style="margin-right: auto"></em>
+						</button>
+						<div id="Demo3" class="w3-hide w3-container">
+							<div class="w3-row-padding">
+								<br />
+								<div class="w3-half">
+									<img src="/img/1.png" style="width: 80%"
+										class="w3-margin-bottom" />
+								</div>
+								<div class="w3-half">
+									<img src="/img/1.png" style="width: 80%"
+										class="w3-margin-bottom" />
+								</div>
+								<div class="w3-half">
+									<img src="/img/1.png" style="width: 80%"
+										class="w3-margin-bottom" />
+								</div>
+								<div class="w3-half">
+									<img src="/img/1.png" style="width: 80%"
+										class="w3-margin-bottom" />
+								</div>
+								<div class="w3-half">
+									<img src="/img/1.png" style="width: 80%"
+										class="w3-margin-bottom" />
+								</div>
+								<div class="w3-half">
+									<img src="/img/1.png" class="w3-margin-bottom"
+										style="width: 80%" />
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<br />
+
+				<!-- Interests --> <br />
+
+				<!-- Alert Box -->
+				<!-- End Left Column -->
+			</div>
+
+			<!-- Middle Column -->
+			<div class="w3-col m7">
+
+			
+
+				<div class="w3-container w3-card-2 w3-white w3-round w3-margin" >
+					<h2>Rechercher des Profeseurs : </h2>
+					<br/>
+					<form action="effectuerRechAvPro" method="POST">
+						<label for="nom" class="col-md-2 control-label" >Nom</label><input type="text" name="nom"/> <br/><br/>
+						<label for="nom" class="col-md-2 control-label" >Prénom</label><input type="text" name="prenom"/> <br/><br/>
+						<label for="nom" class="col-md-2 control-label" >Adresse</label><input type="text" name="adresse"/> <br/><br/>
+						<label for="nom" class="col-md-2 control-label" >Matière</label><input type="text" name="genie"/> <br/><br/>
+						<label for="nom" class="col-md-2 control-label" >Description</label><input type="text" name="description"/><br/><br/>
+						<label for="nom" class="col-md-2 control-label" >Tel</label><input type="text" name="tel" /> <br/><br/>
+						
+						<button class="btn btn-secondary" style="margin-bottom:10px;margin-left:165px;" type="submit">
+								Rechercher
+						</button>
+					</form>
+				</div>
+				<div class="w3-container w3-card-2 w3-white w3-round w3-margin" >
+					<h2>Rechercher des Offres : </h2>
+					<br/>
+					<form action="effectuerRechAvPub" method="POST">
+						<label for="title" class="col-md-2 control-label" >Titre</label><input type="text" name="title"/> <br/><br/>
+						<label for="body" class="col-md-2 control-label" >Contenu</label><input type="text" name="body"/> <br/><br/>
+						<button class="btn btn-secondary" style="margin-bottom:10px;margin-left:165px;" type="submit">
+								Rechercher
+						</button>
+					</form>
+				</div>
+
+				<!-- End Middle Column -->
+			</div>
+
+			<!-- Right Column -->
+    <div class="w3-col m2">
+      <div class="w3-card-2 w3-round w3-white w3-center">
+        <div class="w3-container">
+          <div th:each="friend : ${fri}">
+
+						<img th:src="'files/'+${friend.value.img}" alt="Avatar"
+							style="width: 50%"><br><span th:text="${friend.getValue().nom}+' '+${friend.getValue().prenom}"></span> <br>
+						<div class="w3-row ">
+							<div class="w3-half">
+								<form method="post" th:action="accept">
+									<input type="hidden" name="idd" th:value="${friend.getKey()}" />
+									<button class="w3-button w3-block  c w3-section" title="Accept"
+										type="submit">Confirmer</button>
+								</form>
+							</div>
+							<div class="w3-half">
+								<form method="post" th:action="decline">
+									<input type="hidden" name="idd" th:value="${friend.getKey()}" />
+									<button class="w3-button w3-block  d w3-section"
+										title="Decline" type="submit">Refuser</button>
+								</form>
+							</div>
+						</div>
+					</div>
+        </div>
+      
+	  
+	  
+      
+     
+      </div>
+      <br/>
+      <br/>
+      <!-- End Right Column -->
+    </div>
+
+			<!-- End Grid -->
+		</div>
+
+		<!-- End Page Container -->
+	</div>
+	<br />
+
+	<!-- Footer -->
+
+	<footer class="w3-container w3-theme-d5"></footer>
+
+	<script>
+		// Accordion
+		function myFunction(id) {
+			var x = document.getElementById(id);
+			if (x.className.indexOf("w3-show") == -1) {
+				x.className += " w3-show";
+				x.previousElementSibling.className += " w3-theme-d1";
+			} else {
+				x.className = x.className.replace("w3-show", "");
+				x.previousElementSibling.className = x.previousElementSibling.className
+						.replace(" w3-theme-d1", "");
+			}
+		}
+
+		// Used to toggle the menu on smaller screens when clicking on the menu button
+		function openNav() {
+			var x = document.getElementById("navDemo");
+			if (x.className.indexOf("w3-show") == -1) {
+				x.className += " w3-show";
+			} else {
+				x.className = x.className.replace(" w3-show", "");
+			}
+		}
+	</script>
+</body>
+</html>
